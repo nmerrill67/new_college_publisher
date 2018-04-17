@@ -47,11 +47,11 @@ def nc_publisher(vo_fn="", im_dir="", rate=1.0):
 							fl_nm = join(im_dir,"StereoImage__" + t_str)
 							imL = imread(fl_nm + "-left.pnm")
 							imR = imread(fl_nm + "-right.pnm")
-							msgL = cvb.cv2_to_imgmsg(imL)
+							msgL = cvb.cv2_to_imgmsg(imL, "bgr8")
 							msgL.header.frame_id = frame_id
 							msgL.header.stamp.secs = secs
 							msgL.header.stamp.nsecs = nano_secs
-							msgR = cvb.cv2_to_imgmsg(imR)
+							msgR = cvb.cv2_to_imgmsg(imR, "bgr8")
 							msgR.header.frame_id = frame_id
 							msgR.header.stamp.secs = secs
 							msgR.header.stamp.nsecs = nano_secs
